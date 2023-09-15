@@ -2,7 +2,7 @@
 How to run Local
 
 Clone the repository
-### `1. git clone git@github.com:gech4me/tic-tac-react.git`
+### `1. git clone https://github.com/ServiceNow-ITSM-DevOps/tic-tac-react.git`
 
 Get dependency 
 ### `2. yarn install`
