@@ -1,5 +1,4 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+# This workflow uses ServiceNow custom actions that are certified by ServiceNow.
 
 name: 20 Dummy Jobs - React Repository Three 5
 
@@ -11,544 +10,244 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
+  build1:
+    runs-on: self-hosted
+    name: Build1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-    build1:
-        name: 'Build1'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
-    build2:
-        name: 'Build2'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build2:
+    #needs: build1
+    runs-on: self-hosted
+    name: Build2
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-    build3:
-        name: 'Build3'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build3:
+    #needs: build2
+    runs-on: self-hosted
+    name: Build3
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-    build4:
-        name: 'Build4'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build4:
+    #needs: build3
+    runs-on: self-hosted
+    name: Build4
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build5:
-        name: 'Build5'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build5:
+    #needs: build4
+    runs-on: self-hosted
+    name: Build5
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build6:
-        name: 'Build6'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build6:
+    #needs: build5
+    runs-on: self-hosted
+    name: Build6
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build7:
-        name: 'Build7'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build7:
+    #needs: build6
+    runs-on: self-hosted
+    name: Build7
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build8:
-        name: 'Build8'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build8:
+    #needs: build7
+    runs-on: self-hosted
+    name: Build8
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build9:
-        name: 'Build9'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build9:
+    #needs: build8
+    runs-on: self-hosted
+    name: Build9
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build10:
-        name: 'Build10'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build10:
+    #needs: build9
+    runs-on: self-hosted
+    name: Build10
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build11:
-        name: 'Build11'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build11:
+    #needs: build10
+    runs-on: self-hosted
+    name: Build11
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build12:
-        name: 'Build12'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build12:
+    #needs: build11
+    runs-on: self-hosted
+    name: Build12
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build13:
-        name: 'Build13'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build13:
+    #needs: build12
+    runs-on: self-hosted
+    name: Build13
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build14:
-        name: 'Build14'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build14:
+    #needs: build13
+    runs-on: self-hosted
+    name: Build14
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build15:
-        name: 'Build15'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build15:
+    #needs: build14
+    runs-on: self-hosted
+    name: Build15
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build16:
-        name: 'Build16'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build16:
+    #needs: build15
+    runs-on: self-hosted
+    name: Build16
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build17:
-        name: 'Build17'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build17:
+    #needs: build16
+    runs-on: self-hosted
+    name: Build17
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build18:
-        name: 'Build18'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build18:
+    #needs: build17
+    runs-on: self-hosted
+    name: Build18
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build19:
-        name: 'Build19'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build19:
+    #needs: build18
+    runs-on: self-hosted
+    name: Build19
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-     build20:
-        name: 'Build20'
-        runs-on: macOS-latest
-        steps:           
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-            
-            - name: Set up JDK 11
-              uses: actions/setup-java@v1
-              with:
-                  java-version: 11
-            
-            - name: Cache SonarCloud packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.sonar/cache
-                  key: ${{ runner.os }}-sonar
-                  restore-keys: ${{ runner.os }}-sonar
-            
-            - name: Cache Maven packages
-              uses: actions/cache@v1
-              with:
-                  path: ~/.m2
-                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-                  restore-keys: ${{ runner.os }}-m2
+  build20:
+    #needs: build19
+    runs-on: self-hosted
+    name: Build20
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ 14 }}
+      - run: npm install
 
-                   
+
+    
