@@ -4,10 +4,10 @@
 name: 20 Dummy Jobs - React Repository Three 2
 
 on:
-  # push:
-  #   branches: [ main ]
+  push:
+    branches: [ "master" ]
   pull_request:
-    branches: [ master ]
+    branches: [ "master" ]
     types: [opened, synchronize, reopened]
 
 jobs:
